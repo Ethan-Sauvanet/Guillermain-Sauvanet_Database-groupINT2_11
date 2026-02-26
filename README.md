@@ -127,4 +127,7 @@ Medical files are confidential and updated after each consultation or surgery._<
 || Last maintenance date | Date | 10 characters |
 
 
+**Finally, we implemented the following MCD using the modelling software Looping :**<br/>
+
+<img width="1557" height="776" alt="image" src="https://github.com/user-attachments/assets/6d405560-d41e-4578-8eb3-03a46a0b3462" />
 
