@@ -131,3 +131,18 @@ Medical files are confidential and updated after each consultation or surgery._<
 
 <img width="1557" height="776" alt="image" src="https://github.com/user-attachments/assets/6d405560-d41e-4578-8eb3-03a46a0b3462" />
 
+**From the MCD, Looping allows us to automatically deduce the LDM :**<br/>
+
+**Surgeon** = (**s\_ID** INT, s\_fname VARCHAR(50), s\_speciality VARCHAR(50), **s\_phone\_nb** VARCHAR(15), **s\_professional\_email** VARCHAR(100), s\_lname VARCHAR(50), **s\_licence\_nb** VARCHAR(20));
+**Nurse** = (**n\_ID** INT, n\_lname VARCHAR(50), n\_fname VARCHAR(50), n\_qualification VARCHAR(50), **n\_phone\_nb** VARCHAR(15), **n\_professional\_email** VARCHAR(100));
+**Room** = (**r\_ID** INT, r\_type VARCHAR(50), r\_capacity INT, r\_location INT);
+**Equipment** = (**e\_ID** INT, e\_name VARCHAR(100), e\_category VARCHAR(100), e\_purchase\_date DATE, e\_maintenance\_status VARCHAR(50), e\_last\_maintenance\_date DATE);
+**Patient** = (**p\_ID** INT, p\_lname VARCHAR(50), p\_fname VARCHAR(50), p\_birthdate DATE, **p\_email** VARCHAR(100), p\_add\_housenb VARCHAR(50), p\_add\_postalcode VARCHAR(50), **p\_social\_security\_nb** CHAR(13), p\_add\_postalcode VARCHAR(50), p\_social\_security\_nb CHAR(13), p\_add\_streetname VARCHAR(50), p\_gender VARCHAR(30), **p\_phone\_number** VARCHAR(15));
+**Medical_file** = (**#p\_ID**, mf\_current\_diagnosis VARCHAR(255), mf\_history\_description VARCHAR(1000), mf\_rehabilitation\_protocol\_description VARCHAR(1000), mf\_date\_of\_last\_update DATE);
+**Surgery** = (**sg\_ID** INT, s\_date DATE, s\_duration\_minutes INT, s\_type VARCHAR(100), s\_report VARCHAR(1000), #p\_ID, #r\_ID, #s\_ID);
+**Consultation** = (**c\_ID** INT, c\_date DATE, c\_time TIME, c\_report VARCHAR(1000), c\_status VARCHAR(30), **#sg\_ID**, #p\_ID, #r\_ID, #s\_ID);
+**is_followed_by** = (**#s\_ID, #p\_ID**);
+**involves** = (**#s\_ID, #n\_ID, #sg\_ID, #e\_ID**);
+**is_assigned_to** = (**#n\_ID, #r\_ID**);
+**collaborates_with** = (**#s\_ID, #s\_ID\_1**);
+S
